@@ -86,37 +86,21 @@ public class List_inArraySlots {
             || doubleEnd == doubleElements.length
             || stringEnd == stringElements.length)
           expand();
+        filledElements++;
         if (type == 0)
-          add(intValue);
+          typeOfElements[filledElements] = 0;
+          intElements[intEnd] = n;
+          intEnd++;
         if (type == 1)
-          add(doubleValue);
+          typeOfElements[filledElements] = 1;
+          doubleElements[doubleEnd] = n;
+          doubleEnd++;
         if (type == 2)
-          add(stringValue);
+          typeOfElements[filledElements] = 2;
+          stringElements[stringEnd] = s;
+          stringEnd++;
         return true;
      }
-
-     private boolean add(int n){
-       typeOfElements[filledElements] = 0;
-       filledElements++;
-       intElements[intEnd] = n;
-       intEnd++;
-       //ASK IF WE CAN USE MORE PRIVATE VARIABLES TO STORE THE "FILLED ELEMENTS" OF EACH OR IF WE NEED TO COUNT
-     }
-
-     private boolean add(double n){
-       typeOfElements[filledElements] = 1;
-       filledElements++;
-       doubleElements[doubleEnd] = n;
-       doubleEnd++;
-     }
-
-     private boolean add(String s){
-       typeOfElements[filledElements] = 2;
-       filledElements++;
-       stringElements[stringEnd] = s;
-       stringEnd++;
-     }
-
 
     /**
       Double the capacity of the List_inArraySlots,
