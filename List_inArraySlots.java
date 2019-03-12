@@ -22,10 +22,6 @@ public class List_inArraySlots {
 
     private static final int INITIAL_CAPACITY = 10;
 
-    private int intEnd;
-    private int doubleEnd;
-    private int stringEnd;
-
     /**
       Construct an empty list with a small initial capacity.
      */
@@ -33,7 +29,7 @@ public class List_inArraySlots {
       intElements = new int[INITIAL_CAPACITY];
       doubleElements = new double[INITIAL_CAPACITY];
       stringElements = new String[INITIAL_CAPACITY];
-      typeOfElements = new int[INITIAL_CAPACITY * 3]
+      typeOfElements = new int[INITIAL_CAPACITY]
     }
 
 
@@ -51,21 +47,15 @@ public class List_inArraySlots {
       */
     public String toString() {
       String s = "[";
-      int intCounter = 0;
-      int doubleCounter = 0;
-      int stringCounter = 0;
       for (int i = 0; i < filledElements; i++){
         if (typeOfElements[i] == 0){
-          s += intElements[intCounter];
-          intCounter++;
+          s += intElements[i] + ", ";
         }
         if (typeOfElements[i] == 1){
-          s += doubleElements[doubleCounter];
-          doubleCounter++;
+          s += doubleElements[i] + ", ";
         }
         if (typeOfElements[i] == 2){
-          s += stringElements[stringCounter];
-          stringCounter++;
+          s += stringElements[i] + ", ";
         }
       }
       return s + "]";
@@ -81,16 +71,11 @@ public class List_inArraySlots {
                        , double doubleValue
                        , String stringValue
                        ) {
-        if (filledElements == typeOfElements.length
-            || intEnd == intElements.length
-            || doubleEnd == doubleElements.length
-            || stringEnd == stringElements.length)
+        if (filledElements == typeOfElements.length)
           expand();
-        filledElements++;
         if (type == 0)
           typeOfElements[filledElements] = 0;
-          intElements[intEnd] = n;
-          intEnd++;
+          intElements[filledElements] = 
         if (type == 1)
           typeOfElements[filledElements] = 1;
           doubleElements[doubleEnd] = n;
