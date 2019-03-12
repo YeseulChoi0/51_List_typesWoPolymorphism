@@ -75,15 +75,13 @@ public class List_inArraySlots {
           expand();
         if (type == 0)
           typeOfElements[filledElements] = 0;
-          intElements[filledElements] = 
+          intElements[filledElements] = intValue;
         if (type == 1)
           typeOfElements[filledElements] = 1;
-          doubleElements[doubleEnd] = n;
-          doubleEnd++;
+          doubleElements[filledElements] = doubleValue;
         if (type == 2)
           typeOfElements[filledElements] = 2;
-          stringElements[stringEnd] = s;
-          stringEnd++;
+          stringElements[filledElements] = stringValue;
         return true;
      }
 
