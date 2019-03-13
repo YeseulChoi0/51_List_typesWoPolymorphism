@@ -125,4 +125,18 @@ public class List_inArraySlots {
         stringElements = newStringElements;
         typeOfElements = newTypeOfElements;
      }
+
+     public Element get(int index) {
+       Element eleOfArray = new Element(intElements[index], doubleElements[index], stringElements[index]);
+
+       if (typeOfElements[index] == 0) {
+         return eleOfArray.intElem;
+       }
+       if (typeOfElements[index] == 1) {
+         return eleOfArray.doubleElem;
+       }
+       if (typeOfElements[index] == 2) {
+         return eleOfArray.stringElem;
+       }
+     }
 }
