@@ -29,7 +29,7 @@ public class List_inArraySlots {
       intElements = new int[INITIAL_CAPACITY];
       doubleElements = new double[INITIAL_CAPACITY];
       stringElements = new String[INITIAL_CAPACITY];
-      typeOfElements = new int[INITIAL_CAPACITY]
+      typeOfElements = new int[INITIAL_CAPACITY];
     }
 
 
@@ -73,15 +73,19 @@ public class List_inArraySlots {
                        ) {
         if (filledElements == typeOfElements.length)
           expand();
-        if (type == 0)
+        if (type == 0) {
           typeOfElements[filledElements] = 0;
           intElements[filledElements] = intValue;
-        if (type == 1)
+        }
+        if (type == 1) {
           typeOfElements[filledElements] = 1;
           doubleElements[filledElements] = doubleValue;
-        if (type == 2)
+        }
+        if (type == 2) {
           typeOfElements[filledElements] = 2;
           stringElements[filledElements] = stringValue;
+        }
+        filledElements++;
         return true;
      }
 
@@ -89,13 +93,36 @@ public class List_inArraySlots {
       Double the capacity of the List_inArraySlots,
       preserving existing data.
      */
-     // private void expand() {
-        // System.out.println( "expand... (for debugging)");
-           // /* S.O.P. rules for debugging:
-              // Working methods should be silent. But during
-              // development, the programmer must verify that
-              // this method is called when that is appropriate.
-              // So test using the println(), then comment it out.
-              // */
-     // }
+     private void expand() {
+        System.out.println( "expand... (for debugging)");
+           /* S.O.P. rules for debugging:
+              Working methods should be silent. But during
+              development, the programmer must verify that
+              this method is called when that is appropriate.
+              So test using the println(), then comment it out.
+              */
+        int[] newIntElements = new int[intElements.length * 2];
+        double[] newDoubleElements = new double[doubleElements.length * 2];
+        String[] newStringElements = new String[stringElements.length * 2];
+        int[] newTypeOfElements = new int[typeOfElements.length * 2];
+
+        for (int i = 0; i < filledElements; i++) {
+          newIntElements[i] = intElements[i];
+          System.out.println(newIntElements[i]);
+
+          newDoubleElements[i] = doubleElements[i];
+          System.out.println(newDoubleElements[i]);
+
+          newStringElements[i] = stringElements[i];
+          System.out.println(newStringElements[i]);
+
+          newTypeOfElements[i] = typeOfElements[i];
+          System.out.println(newTypeOfElements[i]);
+        }
+
+        intElements = newIntElements;
+        doubleElements = newDoubleElements;
+        stringElements = newStringElements;
+        typeOfElements = newTypeOfElements;
+     }
 }
